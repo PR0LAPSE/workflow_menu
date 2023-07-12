@@ -43,3 +43,7 @@ fetch("/extensions/workflow_menu/workflows_paths.txt")
 
 var saveButton = document.querySelector("#comfy-save-button");
 saveButton.parentNode.insertBefore(selectWorkflow, saveButton);
+
+setTimeout(() => {
+	app.loadGraphData()
+}, 5000);
