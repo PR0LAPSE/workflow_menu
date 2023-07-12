@@ -1,3 +1,14 @@
+## TL;DR:
+добавь в ячейку колаба перед запуском ComfyUI:
+```
+!git clone https://github.com/PR0LAPSE/workflow_menu /content/ComfyUI/custom_nodes/workflow_menu
+```
+или:
+```
+import subprocess
+subprocess.run(["git", "clone", "https://github.com/PR0LAPSE/workflow_menu"], cwd="/content/ComfyUI/custom_nodes")
+```
+
 ## ComfyUI workflow_menu для Google Colab
 Простое дополнение для пользователей Colab, которое добавляет в ComfyUI меню выбора различных workflow без необходимости загружать их с ПК или заниматься перетаскиванием.
 Пользовательские workflow нужно положить на твоем гуглодиске по пути `Гуглодиск/SD/ComfyUI/workflow` и они автоматически будут добавляться в выпадающий список меню, где они могут быть выбраны и автоматически загружены.
