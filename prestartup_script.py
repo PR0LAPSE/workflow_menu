@@ -16,7 +16,9 @@ custom_nodes_path = os.path.join(os.path.dirname(folder_paths.__file__), "custom
 default_forkflow = "https://raw.githubusercontent.com/PR0LAPSE/wc/main/Sytan%20SDXL%20Workflow%20v0.5.json"
 defaultGraph = os.path.join(os.path.dirname(folder_paths.__file__), "web", "scripts", "defaultGraph.js")
 wcrepo = "PR0LAPSE/wc"
-
+colab_out = os.path.join(os.path.dirname(folder_paths.__file__), "output")
+gdrive_out = '/content/drive/MyDrive/SD/ComfyUI/output'
+os.makedirs(gdrive_out, exist_ok=True)
 if not os.path.exists(gdrive_workflow):
     os.makedirs(gdrive_workflow)
     print("на гуглодиске создана папка SD/ComfyUI/workflow - там надо хранить свои воркфлоу!")
@@ -80,3 +82,7 @@ with open(defaultGraph, "r+") as file:
     file.seek(0)
     file.write("export const defaultGraph = " + jsontext)
     file.truncate()
+
+if os.path.exists(colab_out):
+    shutil.rmtree(colab_out)
+os.symlink(colab_out, gdrive_out)
