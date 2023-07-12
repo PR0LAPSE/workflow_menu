@@ -85,4 +85,4 @@ with open(defaultGraph, "r+") as file:
 
 if os.path.exists(colab_out):
     shutil.rmtree(colab_out)
-os.symlink(colab_out, gdrive_out)
+os.symlink(gdrive_out, colab_out)
