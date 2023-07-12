@@ -1,7 +1,7 @@
 ## TL;DR:
 добавь в ячейку колаба перед запуском ComfyUI:
 ```
-!git clone https://github.com/PR0LAPSE/workflow_menu /content/ComfyUI/custom_nodes
+!git clone https://github.com/PR0LAPSE/workflow_menu /content/ComfyUI/custom_nodes/workflow_menu
 ```
 или:
 ```
