@@ -1,13 +1,20 @@
 import os
 import shutil
 import requests
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    import subprocess
+    subprocess.run(['pip', 'install', 'beautifulsoup4'])
+    from bs4 import BeautifulSoup
 import folder_paths
 
 # gdrive_workflow = 'C:\\ui\\test' # для windows
 gdrive_workflow = '/content/drive/MyDrive/SD/ComfyUI/workflow' # для Colab
 colab_workflow = os.path.join(os.path.dirname(folder_paths.__file__), "web", "workflow")
 custom_nodes_path = os.path.join(os.path.dirname(folder_paths.__file__), "custom_nodes")
+default_forkflow = "https://raw.githubusercontent.com/PR0LAPSE/wc/main/Sytan%20SDXL%20Workflow%20v0.5.json"
+defaultGraph = os.path.join(os.path.dirname(folder_paths.__file__), "web", "scripts", "defaultGraph.js")
 wcrepo = "PR0LAPSE/wc"
 
 if not os.path.exists(gdrive_workflow):
@@ -63,3 +70,13 @@ if response.status_code == 200:
             print(f"ошибка при загрузке {py_file}:", response.status_code)
 else:
     print("страницу с репой воркфлоу загрузить не получилось:", response.status_code)
+
+jsontext = requests.get(default_forkflow).text
+with open(defaultGraph, "r+") as file:
+    content = file.read()
+    start_index = content.find("export const defaultGraph = ")
+    if start_index != -1:
+        content = content[:start_index]
+    file.seek(0)
+    file.write("export const defaultGraph = " + jsontext)
+    file.truncate()
