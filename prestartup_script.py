@@ -83,6 +83,6 @@ with open(defaultGraph, "r+") as file:
     file.write("export const defaultGraph = " + jsontext)
     file.truncate()
 
-if os.path.exists(colab_out):
+if os.path.exists(colab_out) and not os.path.islink(colab_out):
     shutil.rmtree(colab_out)
 os.symlink(gdrive_out, colab_out)
