@@ -13,7 +13,7 @@ import folder_paths
 gdrive_workflow = '/content/drive/MyDrive/SD/ComfyUI/workflow' # для Colab
 colab_workflow = os.path.join(os.path.dirname(folder_paths.__file__), "web", "workflow")
 custom_nodes_path = os.path.join(os.path.dirname(folder_paths.__file__), "custom_nodes")
-default_forkflow = "https://raw.githubusercontent.com/PR0LAPSE/wc/main/Sytan%20SDXL%20Workflow%20v0.5.json"
+default_forkflow = "https://raw.githubusercontent.com/PR0LAPSE/wc/main/sdxl_refiner_upscale.json"
 defaultGraph = os.path.join(os.path.dirname(folder_paths.__file__), "web", "scripts", "defaultGraph.js")
 wcrepo = "PR0LAPSE/wc"
 colab_out = os.path.join(os.path.dirname(folder_paths.__file__), "output")
