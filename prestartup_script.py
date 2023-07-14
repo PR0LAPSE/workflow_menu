@@ -67,7 +67,7 @@ if response.status_code == 200:
         if response.status_code == 200:
             with open(os.path.join(custom_nodes_path, py_file), "wb") as f:
                 f.write(response.content)
-                print(f"{py_file} успешно скачан")
+                #print(f"{py_file} успешно скачан")
         else:
             print(f"ошибка при загрузке {py_file}:", response.status_code)
 else:
